@@ -34,10 +34,16 @@ function keyPressed() {
 function draw() {
     scale(rez);
     background(220);
-    snake.update();
-    snake.show();
     if (snake.eat(food)) {
         foodLocation();
+    }
+    snake.update();
+    snake.show();
+
+    if (snake.endGame()) {
+        console.log('You lost');
+        background(255,0,0);
+        noLoop();
     }
 
     noStroke();
